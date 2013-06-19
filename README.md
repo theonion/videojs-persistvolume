@@ -7,9 +7,10 @@ A plugin for videojs that saves user's volume setting.
 Include videojs.persistvolume.js
 
 Add persistVolume to plugins object with one option, namespace.
-	plugins: {
-		persistVolume: {
-			namespace: 'namespace'
-		}
-	}	
+
+    plugins: {
+	    persistVolume: {
+		    namespace: 'namespace'
+	    }
+    }
 
