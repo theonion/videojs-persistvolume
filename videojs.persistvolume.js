@@ -58,7 +58,9 @@
         }
 
         this.on("volumechange", onVolumeChange);
-        this.volume(this.persistVolume.getVolume());
-
+        var persistedVolume = this.persistVolume.getVolume();
+        if(persistedVolume !== null){
+            this.volume(persistedVolume);
+        }
     })
 })();
