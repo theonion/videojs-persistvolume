@@ -39,11 +39,6 @@
         this.persistVolume.setVolume(this.volume());
     }
 
-    function onPlay(){
-        var vol = this.persistVolume.getVolume();
-        vol && this.volume(this.persistVolume.getVolume());
-    }
-
     videojs.plugin('persistVolume', function(options){
         var hasLocalStorage  = (function(){
             try {
@@ -62,7 +57,8 @@
             return hasLocalStorage ? getStorageItem(key) : getCookieItem(key);
         }
 
-        this.on("volumechange", onVolumeChange)
-        this.on("play", onPlay)
+        this.on("volumechange", onVolumeChange);
+        this.volume(this.persistVolume.getVolume());
+
     })
 })();
