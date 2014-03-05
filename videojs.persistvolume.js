@@ -94,6 +94,6 @@
     }
   };
 
-  vjs.plugin("persistVolume", volumePersister);
+  vjs.plugin("persistvolume", volumePersister);
 
 })(window, document, videojs);
