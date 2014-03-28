@@ -55,10 +55,10 @@
     }
   },
   getStorageItem = function(key) {
-    return hasLocalStorage ? window.localStorage.getItem(key) : getCookieItem(key);
+    return hasLocalStorage() ? window.localStorage.getItem(key) : getCookieItem(key);
   },
   setStorageItem = function(key, value) {
-    return hasLocalStorage ? window.localStorage.setItem(key, value) : setCookieItem(key, value, Infinity, '/');
+    return hasLocalStorage() ? window.localStorage.setItem(key, value) : setCookieItem(key, value, Infinity, '/');
   },
 
   extend = function(obj) {
