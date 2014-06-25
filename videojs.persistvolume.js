@@ -83,14 +83,21 @@
     var settings = extend({}, defaults, options || {});
 
     var key = settings.namespace + '-' + 'volume';
-
+    var muteKey = settings.namespace + '-' + 'mute';
+    
     player.on("volumechange", function() {
       setStorageItem(key, player.volume());
+      setStorageItem(muteKey, player.muted());
     });
 
     var persistedVolume = getStorageItem(key);
     if(persistedVolume !== null){
       player.volume(persistedVolume);
+    }
+    
+    var persistedMute = getStorageItem(muteKey);
+    if(persistedMute !== null){
+      player.muted('true' === persistedMute);
     }
   };
 
