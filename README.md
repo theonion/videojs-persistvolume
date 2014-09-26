@@ -13,7 +13,7 @@ Include the plugin:
 Add persistVolume to plugins object with one option, namespace.
 
     plugins: {
-	    persistVolume: {
+	    persistvolume: {
 		    namespace: 'So-Viral-So-Hot'
 	    }
     }
