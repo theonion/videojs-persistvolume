@@ -6,14 +6,14 @@ A plugin for Video.js that saves user's volume setting using [localStorage](http
 ###Usage
 Include the plugin:
 
-```
+```html
 <script src="videojs.persistvolume.js"></script>
 ```
 
-Add persistVolume to plugins object with one option, namespace.
+Add `persistvolume` to the `plugins` object with one option, `namespace`.
 
     plugins: {
-	    persistVolume: {
+	    persistvolume: {
 		    namespace: 'So-Viral-So-Hot'
 	    }
     }
