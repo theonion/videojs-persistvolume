@@ -116,6 +116,8 @@
     if(persistedMute !== null){
       player.muted('true' === persistedMute);
     }
+
+    this.player_.trigger('volumechange');
   };
 
   vjs.plugin("persistvolume", volumePersister);
