@@ -21,6 +21,6 @@
     "tests"
   ],
   "dependencies": {
-    "video.js": ">=4.4.2"
+    "video.js": ">=5.0"
   }
 }
