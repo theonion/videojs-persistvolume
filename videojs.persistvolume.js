@@ -1,5 +1,5 @@
 "use strict";
-(function(factory){
+(function(factory) {
   /*!
    * Custom Universal Module Definition (UMD)
    *
@@ -107,15 +107,17 @@
       setStorageItem(muteKey, player.muted());
     });
 
-    var persistedVolume = getStorageItem(key);
-    if(persistedVolume !== null){
-      player.volume(persistedVolume);
-    }
+    player.ready(function() {
+      var persistedVolume = getStorageItem(key);
+      if(persistedVolume !== null) {
+        player.volume(persistedVolume);
+      }
 
-    var persistedMute = getStorageItem(muteKey);
-    if(persistedMute !== null){
-      player.muted('true' === persistedMute);
-    }
+      var persistedMute = getStorageItem(muteKey);
+      if(persistedMute !== null) {
+        player.muted('true' === persistedMute);
+      }
+    });
   };
 
   vjs.plugin("persistvolume", volumePersister);
