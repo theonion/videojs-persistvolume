@@ -8,7 +8,7 @@
    * compiler compatible, so string keys are used.
    */
   if (typeof define === 'function' && define['amd']) {
-    define(['./video'], function(vjs){ factory(window, document, vjs) });
+    define(['video.js'], function(vjs){ factory(window, document, vjs) });
   // checking that module is an object too because of umdjs/umd#35
   } else if (typeof exports === 'object' && typeof module === 'object') {
     factory(window, document, require('video.js'));
