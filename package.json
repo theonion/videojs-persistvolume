@@ -1,0 +1,11 @@
+{
+    "name": "videojs-persistvolume",
+    "main": "videojs.persistvolume.js",
+    "version": "0.1.3p1",
+    "license": "MIT",
+    "homepage": "https://github.com/jbboehr/videojs-persistvolume",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/jbboehr/videojs-persistvolume.git"
+    }
+}
