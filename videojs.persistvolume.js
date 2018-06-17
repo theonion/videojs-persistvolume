@@ -1,5 +1,5 @@
 "use strict";
-(function(factory){
+(function(factory) {
   /*!
    * Custom Universal Module Definition (UMD)
    *
@@ -8,7 +8,7 @@
    * compiler compatible, so string keys are used.
    */
   if (typeof define === 'function' && define['amd']) {
-    define(['./video'], function(vjs){ factory(window, document, vjs) });
+    define(['video.js'], function(vjs){ factory(window, document, vjs) });
   // checking that module is an object too because of umdjs/umd#35
   } else if (typeof exports === 'object' && typeof module === 'object') {
     factory(window, document, require('video.js'));
@@ -101,23 +101,25 @@
 
     var key = settings.namespace + '-' + 'volume';
     var muteKey = settings.namespace + '-' + 'mute';
-
     player.on("volumechange", function() {
       setStorageItem(key, player.volume());
       setStorageItem(muteKey, player.muted());
     });
 
-    var persistedVolume = getStorageItem(key);
-    if(persistedVolume !== null){
-      player.volume(persistedVolume);
-    }
+    player.ready(function() {
+      var persistedMute = getStorageItem(muteKey);
+      if(persistedMute !== null) {
+        player.muted('true' === persistedMute);
+      }
 
-    var persistedMute = getStorageItem(muteKey);
-    if(persistedMute !== null){
-      player.muted('true' === persistedMute);
-    }
+      var persistedVolume = getStorageItem(key);
+      if(persistedVolume !== null) {
+        player.volume(persistedVolume);
+        player.trigger('volumechange');
+      }
+    });
   };
 
-  vjs.plugin("persistvolume", volumePersister);
+  vjs.registerPlugin("persistvolume", volumePersister);
 
 });
